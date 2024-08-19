@@ -15,34 +15,51 @@
   </style>
 </head>
 <body>
+  <form action="javascript:void(0)" class="form">
+    <h1 class="form__title">Contact Us</h1>
+    <fieldset>
+      <legend class="u-sr-only">User info</legend>
 
-  Contact Us
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" id="firstName">
+      <p class="form__error-message" aria-hidden="true">This field is required</p>
 
-  First Name
-  This field is required
+      <label for="lastName">Last Name</label>
+      <input type="text" name="lastName" id="lastName">
+      <p class="form__error-message" aria-hidden="true">This field is required</p>
 
-  Last Name
-  This field is required
+      <label for="email">Email Address</label>
+      <input type="email" name="email" id="email">
+      <p class="form__error-message" aria-hidden="true">Please enter a valid email address</p>
+    </fieldset>
 
-  Email Address
-  Please enter a valid email address
-  This field is required
+    <fieldset>
+      <legend>Query Type</legend>
+      <label for="queryTypeOpt1">
+        <input type="radio" id="queryTypeOpt1" name="queryType" value="general-enquiry">
+        General Enquiry
+      </label>
+      <label for="queryTypeOpt2">
+        <input type="radio" id="queryTypeOpt2" name="queryType" value="support-request">
+        Support Request
+      </label>
+    </fieldset>
+    
+    <p class="form__error-message" aria-hidden="true">Please select a query type</p>
 
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
+    <label for="message">Message</label>
+    <textarea name="message" id="message"></textarea>
+    <p class="form__error-message" aria-hidden="true">This field is required</p>
 
-  Message
-  This field is required
+    <input type="checkbox" id="consent" name="consent" value="true" required>
+    <label for="consent">I consent to being contacted by the team</label>
+    <p class="form__error-message" aria-hidden="true">To submit this form, please consent to being contacted</p>
+    
+    <button class="form__submit-button" type="submit">Submit</button>
+  </form>
 
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
-
-  Submit
-
-  Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
+  <!-- Message Sent!
+  Thanks for completing the form. We'll be in touch soon! -->
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
