@@ -15,55 +15,63 @@
   </style>
 </head>
 <body>
-  <form action="javascript:void(0)" class="form">
-    <h1 class="form__title">Contact Us</h1>
-    <fieldset>
-      <legend class="u-sr-only">User info</legend>
-
-      <label for="firstName">First Name</label>
-      <input type="text" name="firstName" id="firstName">
-      <p class="form__error-message" aria-hidden="true">This field is required</p>
-
-      <label for="lastName">Last Name</label>
-      <input type="text" name="lastName" id="lastName">
-      <p class="form__error-message" aria-hidden="true">This field is required</p>
-
-      <label for="email">Email Address</label>
-      <input type="email" name="email" id="email">
-      <p class="form__error-message" aria-hidden="true">Please enter a valid email address</p>
-    </fieldset>
-
-    <fieldset>
-      <legend>Query Type</legend>
-      <label for="queryTypeOpt1">
-        <input type="radio" id="queryTypeOpt1" name="queryType" value="general-enquiry">
-        General Enquiry
-      </label>
-      <label for="queryTypeOpt2">
-        <input type="radio" id="queryTypeOpt2" name="queryType" value="support-request">
-        Support Request
-      </label>
-    </fieldset>
-    
-    <p class="form__error-message" aria-hidden="true">Please select a query type</p>
-
-    <label for="message">Message</label>
-    <textarea name="message" id="message"></textarea>
-    <p class="form__error-message" aria-hidden="true">This field is required</p>
-
-    <input type="checkbox" id="consent" name="consent" value="true" required>
-    <label for="consent">I consent to being contacted by the team</label>
-    <p class="form__error-message" aria-hidden="true">To submit this form, please consent to being contacted</p>
-    
-    <button class="form__submit-button" type="submit">Submit</button>
-  </form>
-
-  <!-- Message Sent!
-  Thanks for completing the form. We'll be in touch soon! -->
+  <main>
+    <form action="javascript:void(0)" class="form">
+      <h1 class="form__title">Contact Us</h1>
+      <fieldset class="form__fieldset--user-info">
+        <legend class="u-sr-only">User info</legend>
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+        <div>
+          <label for="firstName" class="form__input-label">First Name</label>
+          <input type="text" name="firstName" id="firstName" class="form__input">
+          <p class="form__error-message" aria-hidden="true" aria-live="assertive">This field is required</p>
+        </div>
+  
+        <div>
+          <label for="lastName" class="form__input-label">Last Name</label>
+          <input type="text" name="lastName" id="lastName" class="form__input">
+          <p class="form__error-message" aria-hidden="true" aria-live="assertive">This field is required</p>
+        </div>
+  
+        <div>
+          <label for="email" class="form__input-label">Email Address</label>
+          <input type="email" name="email" id="email" class="form__input">
+          <p class="form__error-message" aria-hidden="true" aria-live="assertive">Please enter a valid email address</p>
+        </div>
+      </fieldset>
+  
+      <fieldset class="form__fieldset--query-type">
+        <legend>Query Type</legend>
+        <label for="queryTypeOpt1" class="form__input form__input--radio">
+          <input type="radio" id="queryTypeOpt1" name="queryType" value="general-enquiry">
+          General Enquiry
+        </label>
+        <label for="queryTypeOpt2" class="form__input form__input--radio">
+          <input type="radio" id="queryTypeOpt2" name="queryType" value="support-request">
+          Support Request
+        </label>
+      </fieldset>
+      
+      <p class="form__error-message" aria-hidden="true">Please select a query type</p>
+  
+      <label for="message" class="form__input-label">Message</label>
+      <textarea name="message" id="message" class="form__input form__input--message"></textarea>
+      <p class="form__error-message" aria-hidden="true" aria-live="assertive">This field is required</p>
+  
+      <input type="checkbox" id="consent" name="consent" value="true" required class="form__input--checkbox">
+      <label for="consent" class="form__consent-message">I consent to being contacted by the team</label>
+      <p class="form__error-message" aria-hidden="true" aria-live="assertive">To submit this form, please consent to being contacted</p>
+      
+      <button class="form__submit-button" type="submit">Submit</button>
+    </form>
+
+    <!-- Message Sent!
+    Thanks for completing the form. We'll be in touch soon! -->
+  </main>
+  
+  <footer class="attribution">
+    Challenge by <a rel="noopener noreferrer" href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a rel="noopener noreferrer" href="https://github.com/CardboardPL">Your Name Here</a>.
+  </footer>
 </body>
 </html>
