@@ -1,0 +1,46 @@
+:root {
+  /* Colors */
+  /** Primary **/
+  --green-200: hsl(148, 38%, 91%);
+  --green-600: hsl(169, 82%, 27%);
+  --red: hsl(0, 66%, 54%);
+
+  /** Neutral **/
+  --white: hsl(0, 0%, 100%);
+  --grey-500: hsl(186, 15%, 59%);
+  --grey-900: hsl(187, 24%, 22%);
+}
+
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1rem;
+}
+
+body {
+  font-family: "Karla", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0;
+  line-height: 1.5;
+  background-color: var(--green-200);
+  color: var(--grey-900);
+}
+
+main {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 button {
+  font: inherit;
+  color: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
