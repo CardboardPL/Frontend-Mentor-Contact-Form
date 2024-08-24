@@ -11,7 +11,7 @@
   <main>
     <form action="javascript:void(0)" class="form">
       <h1 class="form__title">Contact Us</h1>
-      <fieldset class="form__fieldset--user-info">
+      <fieldset class="form__fieldset form__fieldset--user-info">
         <legend class="u-sr-only">User info</legend>
   
         <div>
@@ -33,27 +33,36 @@
         </div>
       </fieldset>
   
-      <fieldset class="form__fieldset--query-type">
-        <legend>Query Type</legend>
-        <label for="queryTypeOpt1" class="form__input form__input--radio">
-          <input type="radio" id="queryTypeOpt1" name="queryType" value="general-enquiry">
-          General Enquiry
-        </label>
-        <label for="queryTypeOpt2" class="form__input form__input--radio">
-          <input type="radio" id="queryTypeOpt2" name="queryType" value="support-request">
-          Support Request
-        </label>
+      <fieldset class="form__fieldset form__fieldset--query-type">
+        <legend class="form__input-label">Query Type</legend>
+        
+        <div class="form__input--radio-wrapper">
+          <label for="queryTypeOpt1" class="form__input form__input--radio">
+            <input type="radio" id="queryTypeOpt1" name="queryType" value="general-enquiry">
+            General Enquiry
+          </label>
+          <label for="queryTypeOpt2" class="form__input form__input--radio">
+            <input type="radio" id="queryTypeOpt2" name="queryType" value="support-request">
+            Support Request
+          </label>
+        </div>
+
+        <p class="form__error-message" aria-hidden="true">Please select a query type</p>
       </fieldset>
       
-      <p class="form__error-message" aria-hidden="true">Please select a query type</p>
+      <div>
+        <label for="message" class="form__input-label">Message</label>
+        <textarea name="message" id="message" class="form__input form__input--message"></textarea>
+        <p class="form__error-message" aria-hidden="true" aria-live="assertive">This field is required</p>
+      </div>
   
-      <label for="message" class="form__input-label">Message</label>
-      <textarea name="message" id="message" class="form__input form__input--message"></textarea>
-      <p class="form__error-message" aria-hidden="true" aria-live="assertive">This field is required</p>
-  
-      <input type="checkbox" id="consent" name="consent" value="true" required class="form__input--checkbox">
-      <label for="consent" class="form__consent-message">I consent to being contacted by the team</label>
-      <p class="form__error-message" aria-hidden="true" aria-live="assertive">To submit this form, please consent to being contacted</p>
+      <div class="form__consent-wrapper">
+        <div>
+          <input type="checkbox" id="consent" name="consent" value="true" required class="form__input--checkbox">
+          <label for="consent" class="form__consent-message">I consent to being contacted by the team</label>
+        </div>
+        <p class="form__error-message" aria-hidden="true" aria-live="assertive">To submit this form, please consent to being contacted</p>
+      </div>
       
       <button class="form__submit-button" type="submit">Submit</button>
     </form>
