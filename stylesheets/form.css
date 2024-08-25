@@ -187,7 +187,8 @@
   transition: opacity 0.15s ease-in-out;
 }
 
-.form__submit-button:hover {
+.form__submit-button:hover,
+.form__submit-button:focus-within {
   opacity: 0.9;
 }
 

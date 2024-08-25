@@ -6,37 +6,38 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <title>Frontend Mentor | Contact form</title>
   <link rel="stylesheet" type="text/css" href="./stylesheets/index.css">
+  <script src="./scripts/form.js" type="module"></script>
 </head>
 <body>
   <main>
-    <form action="javascript:void(0)" class="form">
+    <form action="javascript:void(0)" class="form js-form" data-required-fields="firstName|lastName|email|queryType|message|consent">
       <h1 class="form__title">Contact Us</h1>
       <fieldset class="form__fieldset form__fieldset--user-info">
         <legend class="u-sr-only">User info</legend>
   
-        <div>
+        <div class="js-form__input-wrapper">
           <label for="firstName" class="form__input-label">First Name</label>
           <input type="text" name="firstName" id="firstName" class="form__input">
-          <p class="form__error-message" aria-hidden="true" aria-live="assertive">This field is required</p>
+          <p class="form__error-message js-form__error-message" aria-hidden="true" aria-live="assertive">|</p>
         </div>
   
-        <div>
+        <div class="js-form__input-wrapper">
           <label for="lastName" class="form__input-label">Last Name</label>
           <input type="text" name="lastName" id="lastName" class="form__input">
-          <p class="form__error-message" aria-hidden="true" aria-live="assertive">This field is required</p>
+          <p class="form__error-message js-form__error-message" aria-hidden="true" aria-live="assertive">|</p>
         </div>
   
-        <div>
+        <div class="js-form__input-wrapper">
           <label for="email" class="form__input-label">Email Address</label>
           <input type="email" name="email" id="email" class="form__input">
-          <p class="form__error-message" aria-hidden="true" aria-live="assertive">Please enter a valid email address</p>
+          <p class="form__error-message js-form__error-message" aria-hidden="true" aria-live="assertive">|</p>
         </div>
       </fieldset>
   
-      <fieldset class="form__fieldset form__fieldset--query-type">
+      <fieldset class="form__fieldset form__fieldset--query-type js-form__input-wrapper">
         <legend class="form__input-label">Query Type</legend>
         
-        <div class="form__input--radio-wrapper">
+        <div class="form__input--radio-wrapper js-form__input--radio-wrapper">
           <label for="queryTypeOpt1" class="form__input form__input--radio">
             <input type="radio" id="queryTypeOpt1" name="queryType" value="general-enquiry">
             General Enquiry
@@ -47,24 +48,24 @@
           </label>
         </div>
 
-        <p class="form__error-message" aria-hidden="true">Please select a query type</p>
+        <p class="form__error-message js-form__error-message" aria-hidden="true">Please select a query type</p>
       </fieldset>
       
-      <div>
+      <div class="js-form__input-wrapper">
         <label for="message" class="form__input-label">Message</label>
         <textarea name="message" id="message" class="form__input form__input--message"></textarea>
-        <p class="form__error-message" aria-hidden="true" aria-live="assertive">This field is required</p>
+        <p class="form__error-message js-form__error-message" aria-hidden="true" aria-live="assertive">|</p>
       </div>
   
-      <div class="form__consent-wrapper">
+      <div class="form__consent-wrapper js-form__input-wrapper">
         <div class="form__consent-input">
           <input type="checkbox" id="consent" name="consent" value="true" required class="form__input--checkbox">
           <label for="consent" class="form__consent-message">I consent to being contacted by the team</label>
         </div>
-        <p class="form__error-message" aria-hidden="true" aria-live="assertive">To submit this form, please consent to being contacted</p>
+        <p class="form__error-message js-form__error-message" aria-hidden="true" aria-live="assertive">To submit this form, please consent to being contacted</p>
       </div>
       
-      <button class="form__submit-button" type="submit">Submit</button>
+      <button class="form__submit-button js-submit-button" type="submit">Submit</button>
     </form>
 
     <!-- Message Sent!
