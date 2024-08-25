@@ -19,13 +19,23 @@ body {
 }
 
 main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
   padding: 32px 16px;
 }
 
-h1, h2, h3, h4, h5, h6 button {
+h1, h2, h3, h4, h5, h6{
   font: inherit;
   line-height: 1.2;
+  color: inherit;
+}
+
+input, textarea, button {
+  font-family: "Karla", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: inherit;
   color: inherit;
 }
 

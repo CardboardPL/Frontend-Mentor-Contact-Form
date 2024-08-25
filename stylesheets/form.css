@@ -1,7 +1,10 @@
 .form {
   background-color: var(--white);
+  width: 100%;
+  max-width: 736px;
   padding: 21px 24px 25px 24px;
   border-radius: 16px;
+  margin: 0 auto;
 }
 
 .form__title {
@@ -28,7 +31,6 @@
 }
 
 .form__fieldset--query-type > legend {
-  grid-column: 1 / -1;
   margin-bottom: 17px;
 }
 
@@ -49,11 +51,9 @@
 }
 
 .form__input {
-  font-family: "Karla", Arial, Helvetica, sans-serif;
-  font-size: 18px;
   color: var(--grey-900);
   height: 51px;
-  padding: 16px 23px;
+  padding: 10px 23px;
   border: 1px solid var(--grey-500);
   border-radius: 8px;
   cursor: pointer;
@@ -85,6 +85,7 @@
 }
 
 .form__input--radio.selected {
+  background-color: var(--green-200);
   border-color: var(--green-600);
 }
 
@@ -100,7 +101,7 @@
   cursor: pointer;
 }
 
-.form__input--radio > input:checked {
+.form__input--radio.selected > input {
   background-image: url("../assets/images/icon-radio-selected.svg");
   border: none;
 }
@@ -112,6 +113,7 @@
   border: 2px solid var(--grey-500);
   margin: 0 19px 0 3px;
   cursor: pointer;
+  transition: border-color 0.15s ease-in-out;
 }
 
 .form__input--checkbox:checked {
@@ -126,16 +128,25 @@
   object-fit: cover;
 }
 
-.form__consent-wrapper > div {
+.form__consent-input {
   display: flex;
   flex-direction: row;
   justify-content: left;
   align-items: center;
   margin-top: 16px;
+  width: fit-content;
+}
+
+.form__consent-input:hover > .form__input--checkbox {
+  border-color: var(--green-600);
 }
 
 .form__consent-wrapper > .form__error-message[aria-hidden="true"] {
   margin-top: -8px;
+}
+
+.form__consent-message {
+  cursor: pointer;
 }
 
 .form__consent-message::after {
@@ -165,8 +176,6 @@
 }
 
 .form__submit-button {
-  font-family: inherit;
-  font-size: 18px;
   font-weight: var(--font-weight-bold);
   color: var(--white);
   background-color: var(--green-600);
@@ -180,4 +189,35 @@
 
 .form__submit-button:hover {
   opacity: 0.9;
+}
+
+@media (min-width: 720px) {
+  .form {
+    padding: 37px 40px 40px 40px;
+  }
+
+  .form__fieldset--user-info,
+  .form__input--radio-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form__fieldset--user-info {
+    column-gap: 16px;
+  }
+
+  .form__fieldset--user-info > div:last-of-type {
+    grid-column: 1 / -1;
+  }
+
+  .form__input--message {
+    height: 105px;
+  }
+
+  .form__consent-input {
+    margin-top: 17px;
+  }
+
+  .form__submit-button {
+    margin-top: 24px;
+  }
 }
