@@ -157,6 +157,7 @@
 .form__error-message {
   position: relative;
   color: var(--red);
+  min-height: 24px;
   margin-top: 7px;
   transition: 
     transform 0.25s ease-in-out,
