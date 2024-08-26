@@ -1,9 +1,24 @@
+let timeout = null;
+
 function extractFormData(form) {
   return Object.fromEntries(new FormData(form).entries());
 }
 
 function extractRequiredFields(form) {
   return form.dataset.requiredFields.split('|');
+}
+
+function clearForm(form) {
+  form.querySelectorAll('input').forEach(input => {
+    if (input.type === 'radio' || input.type === 'checkbox') {
+      input.checked = false;
+    } else {
+      input.value = '';
+    }
+  });
+  form.querySelectorAll('textarea').forEach(textarea => {
+    textarea.value = '';
+  });
 }
 
 function validateEmail(email) {
@@ -31,26 +46,51 @@ function validateForm(currElement) {
     const errorMessageElem = inputElem.closest('.js-form__input-wrapper').querySelector('.js-form__error-message');
     if (!errorMessageElem) continue;
 
+    let isInvalid = false;
+
     if (inputElem.type === 'email' && !validateEmail(inputElem.value)) {
       showErrorMessage(errorMessageElem, 'Please enter a valid email address');
+      isInvalid = true;
 
     } else if (inputElem.type === 'checkbox' && !formData[inputElem.name]) {
       showErrorMessage(errorMessageElem, 'To submit this form, please consent to being contacted');
+      isInvalid = true;
+
+    } else if (inputElem.type === 'radio' && !formData[inputElem.name]) {
+      showErrorMessage(errorMessageElem, 'Please select a query type');
+      isInvalid = true;
 
     } else if (!formData[field]) {
       showErrorMessage(errorMessageElem, 'This field is required');
-      if (!isFocused) {
-        inputElem.focus();
-        isFocused = true;
-      }
+      isInvalid = true;
 
     } else {
       hideErrorMessage(errorMessageElem);
     }
+
+    if (isInvalid && !isFocused) {
+      inputElem.focus();
+      isFocused = true;
+    }
   }
 
   if (!isFocused) {
-    console.log('Valid');
+    clearForm(formElement);
+    resetErrorMessages(formElement);
+    manageRadioButtonGroup(formElement.querySelector('input[type="radio"]'));
+
+    const notificationElem = document.querySelector('.notification');
+    if (!notificationElem) return;
+
+    notificationElem.setAttribute('aria-hidden', 'false');
+
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+
+    timeout = setTimeout(() => {
+      notificationElem.setAttribute('aria-hidden', 'true');
+    }, 5000);
   }
 }
 
@@ -61,11 +101,19 @@ function showErrorMessage(element, message) {
 }
 
 function hideErrorMessage(element) {
-  element.textContent = '|';
+  element.textContent = '';
   element.setAttribute('aria-hidden', 'true');
 }
 
+function resetErrorMessages(form) {
+  form.querySelectorAll('.js-form__error-message').forEach(elem => {
+    hideErrorMessage(elem);
+  });
+}
+
 function manageRadioButtonGroup(element) {
+  if (!element) return;
+
   element.closest('.js-form__input--radio-wrapper').querySelectorAll(`[name="${element.name}"]`).forEach(elem => {
     const wrapperElement = elem.parentElement;
 
@@ -89,7 +137,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-const checkedRadioButtons = Array.from(document.querySelectorAll('input:checked'));
+const checkedRadioButtons = Array.from(document.querySelectorAll('input[type="radio"]:checked'));
 if (checkedRadioButtons.length) {
   checkedRadioButtons.forEach(radio => {
     manageRadioButtonGroup(radio);
