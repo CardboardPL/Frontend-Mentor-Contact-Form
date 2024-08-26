@@ -1,0 +1,34 @@
+.notification {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--grey-900);
+  color: var(--white);
+  padding: 27px 26px 24px 26px;
+  border-radius: 12px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.notification[aria-hidden="false"] {
+  z-index: 10;
+  opacity: 1;
+}
+
+.notification__title {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 10px;
+}
+
+.notification__title > img {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
