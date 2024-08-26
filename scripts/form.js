@@ -68,9 +68,15 @@ function validateForm(currElement) {
       hideErrorMessage(errorMessageElem);
     }
 
-    if (isInvalid && !isFocused) {
-      inputElem.focus();
-      isFocused = true;
+    if (isInvalid) {
+      inputElem.classList.add('invalid');
+
+      if (!isFocused) {
+        inputElem.focus();
+        isFocused = true;
+      }
+    } else {
+      inputElem.classList.remove('invalid');
     }
   }
 

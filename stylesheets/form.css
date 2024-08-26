@@ -61,6 +61,12 @@
   outline: none;
 }
 
+.form__input.invalid,
+.form__input.invalid:hover,
+.form__input.invalid:focus-within {
+  border-color: var(--red);
+}
+
 .form__input:hover,
 .form__input:focus-within {
   border-color: var(--green-600);
@@ -158,11 +164,23 @@
   position: relative;
   color: var(--red);
   min-height: 24px;
-  margin-top: 7px;
+  margin: 7.5px 0 24px 0;
   transition: 
     transform 0.25s ease-in-out,
     opacity 0.25s ease-in-out,
     margin 0.25s ease-in-out;
+}
+
+.form__fieldset--query-type > .form__error-message {
+  margin-top: 14px;
+}
+
+.form__input--message + .form__error-message {
+  margin-bottom: 40px;
+}
+
+.form__consent-wrapper > .form__error-message {
+  margin-bottom: 17px;
 }
 
 .form__error-message[aria-hidden="true"] {
